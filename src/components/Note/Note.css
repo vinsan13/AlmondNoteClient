@@ -1,0 +1,158 @@
+.discover {
+  flex: 8;
+  background-image: url('../../../public/bgc.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+.discover_header {
+  margin: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+
+.discover_title {
+  color: #0E2954;
+  flex: 1;
+}
+
+
+
+.discover_feed {
+  
+  max-width: 750px;
+ 
+  display: flex;
+  margin: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  
+}
+
+
+
+.discover_feed_card {
+  position: relative;
+  width: 200px;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  background-color: rgb(255, 208, 208,0.5);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0E2954;
+  
+  align-items: flex-start;
+}
+
+.discover_feed_card:hover {
+  background-color: #F3AA60;
+}
+
+hr{
+  border-top: 1px solid #0E2954;
+  margin: 2px;
+  width: 100%;
+}
+.card_title {
+  margin: 8px 0;
+  cursor: pointer;
+}
+.card_tagline{
+  margin: 0;
+  cursor: pointer;
+}
+
+.card_body{
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
+.pin{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  
+}
+.pin:hover{
+  font-size: large;
+  color: white;
+}
+.delicon{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: smaller;
+  transition-duration: 0.4s;
+}
+.delicon:hover{
+  font-size: medium;
+  color: white;
+}
+.pause-img {
+  height: 50px;
+  position: absolute;
+  bottom: 100px;
+
+}
+
+.loader_box {
+  height: 200px;
+  text-align: center;
+}
+
+.loader {
+  position: relative;
+  top: 80px;
+
+}
+
+.create {
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  /* background-color: #F29727; */
+
+}
+
+.createBtn {
+  background-color: #F29727;
+  position: absolute;
+  right: 30px;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition-duration: 0.4s;
+}
+.createBtn:hover{
+  background-color: #0E2954; 
+  color: white;
+}
+
+
+
+@media only screen and (max-width: 1180px) {
+  .discover_feed {
+    flex-wrap: nowrap;
+    /* overflow-x: auto; */
+    justify-content: flex-start;
+  }
+}
