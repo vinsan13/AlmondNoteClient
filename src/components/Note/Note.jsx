@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getNotes, deleteNote, updateNote } from '../../actions/notes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbtack, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faThumbtack, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { CircularProgress } from '@mui/material'
 import Popup from '../Popup/Popup';
 import Pagination from '../Pagination/Pagination';
@@ -11,7 +11,7 @@ import './Note.css'
 
 
 
-const Discover = () => {
+const Note = () => {
 
   const dispatch = useDispatch();
 
@@ -20,7 +20,8 @@ const Discover = () => {
   }, [dispatch])
 
   const notes = useSelector((state) => state.notes);
-  const sortedNotes = [...notes].sort((a, b) => (b.pinned - a.pinned));
+  const lruNotes = [...notes].reverse();
+  const sortedNotes = [...lruNotes].sort((a, b) => (b.pinned - a.pinned));
 
   const [noteData, setNoteData] = useState({ title: '', tagline: '', body: '', pinned: false });
   const [isItNew, setIsItNew] = useState(true)
@@ -94,15 +95,20 @@ const Discover = () => {
 
 
 
-      <div className='create'>
+      <div className='taskbar'>
+
         <Pagination
           totalPages={chunkedNotes.length}
           currentPage={currentPage}
           onPageChange={goToPage}
         />
-        <button className="createBtn" onClick={openPopup}>
-          Create
-        </button>
+
+        <div className='create'>
+          <button className="createBtn" onClick={openPopup}>
+            Create
+          </button>
+          <button className='createIcon' onClick={openPopup}><FontAwesomeIcon icon={faPlus} /></button>
+        </div>
       </div>
 
       {isPopupOpen && (<Popup isItNew={isItNew} setIsPopupOpen={setIsPopupOpen} noteData={noteData} setNoteData={setNoteData} />)}
@@ -110,4 +116,4 @@ const Discover = () => {
   )
 }
 
-export default Discover
+export default Note

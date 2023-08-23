@@ -3,9 +3,8 @@
   background-image: url('../../../public/bgc.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+
 }
-
-
 
 .discover_header {
   margin: 0 1rem;
@@ -20,34 +19,30 @@
   flex: 1;
 }
 
-
-
 .discover_feed {
-  
-  max-width: 750px;
- 
   display: flex;
   margin: 10px;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  
+
 }
 
-
+.discover_feed::-webkit-scrollbar {
+  width: 0;
+}
 
 .discover_feed_card {
   position: relative;
-  width: 200px;
+  min-width: 200px;
+  max-width: 210px;
   transition-duration: 0.4s;
   border-radius: 10px;
-  background-color: rgb(255, 208, 208,0.5);
+  background-color: rgb(255, 208, 208, 0.5);
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   color: #0E2954;
-  
   align-items: flex-start;
 }
 
@@ -55,39 +50,42 @@
   background-color: #F3AA60;
 }
 
-hr{
+hr {
   border-top: 1px solid #0E2954;
   margin: 2px;
   width: 100%;
 }
+
 .card_title {
   margin: 8px 0;
   cursor: pointer;
 }
-.card_tagline{
+
+.card_tagline {
   margin: 0;
   cursor: pointer;
 }
 
-.card_body{
+.card_body {
   font-size: 12px;
   cursor: pointer;
 }
 
-
-.pin{
+.pin {
   position: absolute;
   top: 10px;
   right: 10px;
   cursor: pointer;
   transition-duration: 0.4s;
-  
+
 }
-.pin:hover{
+
+.pin:hover {
   font-size: large;
   color: white;
 }
-.delicon{
+
+.delicon {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -95,15 +93,10 @@ hr{
   font-size: smaller;
   transition-duration: 0.4s;
 }
-.delicon:hover{
+
+.delicon:hover {
   font-size: medium;
   color: white;
-}
-.pause-img {
-  height: 50px;
-  position: absolute;
-  bottom: 100px;
-
 }
 
 .loader_box {
@@ -117,42 +110,84 @@ hr{
 
 }
 
-.create {
-  position: absolute;
+.taskbar {
+  position: fixed;
   bottom: 0;
-  height: 70px;
+  height: 90px;
   width: 80%;
   display: flex;
-  justify-content: center;
-  /* background-color: #F29727; */
+  flex-wrap: wrap;
+}
 
+.create {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .createBtn {
   background-color: #F29727;
-  position: absolute;
-  right: 30px;
   border: none;
   color: white;
-  padding: 12px 24px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  padding: 0 16px;
+  height: 35px;
   font-size: 16px;
   font-weight: bold;
   transition-duration: 0.4s;
 }
-.createBtn:hover{
-  background-color: #0E2954; 
+
+.createBtn:hover {
+  background-color: #0E2954;
   color: white;
 }
 
+.createIcon {
 
+  background-color: #F29727;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  height: 45px;
+  padding: 15px;
+  transition-duration: 0.4s;
+  display: none;
+}
+
+.createIcon:hover {
+  background-color: #0E2954;
+  color: white;
+}
 
 @media only screen and (max-width: 1180px) {
   .discover_feed {
     flex-wrap: nowrap;
-    /* overflow-x: auto; */
+    overflow-x: auto;
     justify-content: flex-start;
+    width: 100%;
+  }
+
+  .discover_feed_card {
+    min-width: 200px;
+  }
+
+  .taskbar {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .createBtn {
+    display: none;
+  }
+
+  .createIcon {
+    display: inline;
   }
 }

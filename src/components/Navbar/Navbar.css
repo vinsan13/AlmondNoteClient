@@ -52,6 +52,9 @@
 }
 
 @media only screen and (max-width: 1180px) {
+    .navbar{
+        flex: 0.8;
+    }
     .navbar_logo{
         margin: 9px;
     }
